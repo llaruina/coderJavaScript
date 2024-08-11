@@ -182,15 +182,3 @@ botonesComprar.forEach(boton => {
 })
 
 
-
-let total = 0
-
-let cantidad = 1
-
-let producto = ""
-
-
-function calcularTotal(producto, precio, cantidad = 1) {
-    total += precio * cantidad
-}
-
