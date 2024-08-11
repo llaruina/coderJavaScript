@@ -1,0 +1,48 @@
+h1 {
+    color: blue;
+    text-align: center
+}
+
+h2 {
+    color: red;
+    text-align: center
+}
+
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.contenedor {
+    width: 500px;
+    height: 700px;
+}
+
+.contenedor img {
+    max-width: 100px;
+    max-height: 80px;
+}
