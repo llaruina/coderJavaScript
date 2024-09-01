@@ -44,7 +44,22 @@ nav a {
     height: 700px;
 }
 
+.contenedorChico {
+    display: block;
+    margin: 0; 
+    padding: 0; 
+    width: 100px;
+    height: 200px;
+}
+
 .contenedor img {
     max-width: 100px;
     max-height: 80px;
+}
+
+.btncomprar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
 }
