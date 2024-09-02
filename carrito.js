@@ -6,20 +6,23 @@ const datosEnvio = document.getElementById("datosEnvio");
 
 let total = 0
 
+let carritoGuardado = []
 
-const cargarCarritoDesdeLocalStorage = () => {
-    const carritoGuardado = localStorage.getItem("carrito");
+
+const cargarCarritoDesdeLocalStorage = () => { 
+    carritoGuardado = []
+    carritoGuardado = localStorage.getItem("carrito");
     return carritoGuardado ? JSON.parse(carritoGuardado) : [];
 };
 
-const carritoGuardado = cargarCarritoDesdeLocalStorage()
+carritoGuardado = cargarCarritoDesdeLocalStorage()
 
 carritoGuardado.forEach(el => {
 
     total = total + el.price;
 
     const cardProducto = `
-        <div class="contenedor">
+        <div class="contenedorChico">
             <h3>Titulo: ${el.title}</h3>
             <img src="${el.image}" />
             <p>Precio: $${el.price} </p>
@@ -40,7 +43,7 @@ resumen.innerHTML = `<h2>El total a pagar es: $${total}</h2>
 document.addEventListener('click', function(e) {
     if (e.target && e.target.matches('.btnComprar')) {
         const envio = `
-            <div class="contenedor">
+            <div class="contenedorChico">
                 <p> 
                     <label> Nombre:
                     <input type="text" id="nombre"> 
@@ -66,7 +69,7 @@ document.addEventListener('click', function(e) {
     if (e.target && e.target.matches('.btnEnviar')) {
         console.log("Boton enviar clic")
         const volver = `
-            <div class="contenedor">
+            <div class="contenedorChico">
                 <a href="index.html"> Volver al Inicio</a>  
             </div>
             `;
