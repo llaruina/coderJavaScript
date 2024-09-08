@@ -8,6 +8,11 @@ let total = 0
 
 let carritoGuardado = []
 
+let compra = JSON.parse(localStorage.getItem("compra")) || [];
+
+const guardarCompraEnLocalStorage = () => {
+    localStorage.setItem("compra", JSON.stringify(compra));
+};
 
 const cargarCarritoDesdeLocalStorage = () => { 
     carritoGuardado = []
@@ -93,10 +98,23 @@ document.addEventListener('click', function(e) {
     
             const volver =  `<a href="index.html"> Volver al Inicio</a>`
 
+            let lacompra = {
+                nombre: nombre,
+                direccion: direccion,
+                email: email,
+                carrito: carritoGuardado,
+                total: total
+            }
 
+            compra.push(lacompra)
+           
+            guardarCompraEnLocalStorage()
+            
             datosEnvio.innerHTML += volver;
+    
         }
         
-        console.log("Formulario enviado correctamente");
     }
 });
+
+

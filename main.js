@@ -107,10 +107,14 @@ localStorage.setItem("carrito", JSON.stringify([]));
         try {
             const res = await fetch(url);
             const obtengoProductos = await res.json();
-            console.log(obtengoProductos);
             return obtengoProductos;
         } catch (error) {
-            console.error("Error al obtener los productos. Solo se mostraran los articulos guardados localmente. Error:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Error en la conexión",
+                text: "Solo se mostraran los articulos guardados localmente",
+              });
+
             return productosLocal;
         }
     };
@@ -141,7 +145,6 @@ localStorage.setItem("carrito", JSON.stringify([]));
                 const productoSeleccionado = productos.find(producto => producto.id == productId);
                 carrito.push(productoSeleccionado);
                 guardarCarritoEnLocalStorage();
-                console.log("Producto añadido al carrito:", productoSeleccionado);
             });
         });
     };
