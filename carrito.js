@@ -33,7 +33,7 @@ carritoGuardado.forEach(el => {
     main.innerHTML += cardProducto;
 })
 
-
+total = total.toFixed(2);
 
 resumen.innerHTML = `<h2>El total a pagar es: $${total}</h2>
 <button class="btnComprar"> Finalizar compra </button>
@@ -61,23 +61,47 @@ document.addEventListener('click', function(e) {
 
                 <button class="btnEnviar"> Enviar </button>
             </div>
+
+            <div id="mensajeError" style="color:red;">
+
             `;
         datosEnvio.innerHTML = envio;
+
         console.log('Formulario de envío añadido');
     }
 
     if (e.target && e.target.matches('.btnEnviar')) {
         console.log("Boton enviar clic")
-        const volver = `
-            <div class="contenedorChico">
-                <a href="index.html"> Volver al Inicio</a>  
-            </div>
-            `;
-        datosEnvio.innerHTML += volver;
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const direccion = document.getElementById('direccion').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensajeError = document.getElementById('mensajeError');
+
+        if (!nombre || !direccion || !email) {
+            mensajeError.innerHTML = 'Por favor completa todos los campos.';
+            return;
+        } else {
+            mensajeError.innerHTML = ''; 
+
+            const volver = `
+                <div class="contenedorChico">
+                    <p> Compra finalizada </p>
+                    <p>
+                        <a href="index.html"> Volver al Inicio</a>
+                    </p>  
+                </div>
+                `;
+            datosEnvio.innerHTML += volver;
+        }
+        
+        console.log("Formulario enviado correctamente");
     }
 });
 
+/*
 function calcularTotal(producto, precio, cantidad = 1) {
     total += precio * cantidad
 }
 
+*/
