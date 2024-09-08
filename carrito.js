@@ -83,25 +83,20 @@ document.addEventListener('click', function(e) {
             return;
         } else {
             mensajeError.innerHTML = ''; 
+           
+                Swal.fire({
+                title: "Compra finalizada!",
+                 text: "En minutos le llegará un correo con el detalle!",
+                icon: "success"
+            });
 
-            const volver = `
-                <div class="contenedorChico">
-                    <p> Compra finalizada </p>
-                    <p>
-                        <a href="index.html"> Volver al Inicio</a>
-                    </p>  
-                </div>
-                `;
+    
+            const volver =  `<a href="index.html"> Volver al Inicio</a>`
+
+
             datosEnvio.innerHTML += volver;
         }
         
         console.log("Formulario enviado correctamente");
     }
 });
-
-/*
-function calcularTotal(producto, precio, cantidad = 1) {
-    total += precio * cantidad
-}
-
-*/
